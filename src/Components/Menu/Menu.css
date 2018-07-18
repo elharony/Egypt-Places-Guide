@@ -4,14 +4,14 @@
     font-family: Verdana;
 }
 aside {
-    width: 20%;
+    width: 30%;
     height: 100vh;
-    padding: 1rem 0.5rem;
-    background: #222222;
+    padding: 0 0.5rem;
+    background: #ffffff;
 }
 aside h2 {
-    color: #eeeeee;
-    margin-bottom: 1rem;
+    color: #222222;
+    margin: 1rem 0;
     text-align: center;
 }
 aside .search-form {
@@ -21,18 +21,20 @@ aside .search-form {
 aside .search-form input {
     width: 100%;
     padding: 0.75rem;
-    border: 1px solid #ff0000;
+    border: 1px solid #222222;
     box-sizing: border-box;
 }
 aside .search-result {
+    max-height: 80vh;
+    overflow-y: scroll;
 }
 aside .search-result li {
     padding: 0.5rem;
-    color: #eeeeee;
+    color: #222222;
     cursor: pointer;
     transition: all 300ms ease-in-out;
 }
 aside .search-result li:hover {
-    color: #222222;
-    background: #ffffff;
+    color: #ffffff;
+    background: #222222;
 }
