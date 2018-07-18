@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import './Menu.css'
 
+import places from '../../data/places.json'
+
 class Menu extends Component {
     render() {
         return (
@@ -10,9 +12,9 @@ class Menu extends Component {
                     <input type="text" placeholder="Search Here"/>
                 </div>
                 <ul className="search-result">
-                    <li className="item">Place #1</li>
-                    <li className="item">Place #2</li>
-                    <li className="item">Place #3</li>
+                    {places.map((place) => (
+                        <li className="item">{place.place_title}</li>
+                    ))}
                 </ul>
             </aside>
 
