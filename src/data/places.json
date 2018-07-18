@@ -1,32 +1,30 @@
-{
-  "places": [
-    {
-      "place_id": 1,
-      "place_title": "The Great Pyramid of Giza",
-      "place_url": "https://lh4.googleusercontent.com/proxy/uOn-TLT3CDpPi_SekQo6-Yeir0dp6hyH-cvcVlQMuU2ZYw1vZicT-KhKiZdRxmlTxNXJobKos9igvp6Y3gU75XkeD3-D_1mVpgepZcG9aaFN-qyLrrlzt_pA8231iaa3PKiBxjQYiP0rlLPmqcNhkaN6_W0uhRI=w408-h305-k-no",
-      "latitude": 29.9792391,
-      "longitude": 31.1320132
-    },
-    {
-      "place_id": 2,
-      "place_title": "Khan El-Khalili",
-      "place_url": "https://lh5.googleusercontent.com/p/AF1QipOhjzzBBlR2gXJX6WZMmw8gmh96Zm0KK33vxPiJ=w408-h306-k-no",
-      "latitude": 30.0079248,
-      "longitude": 31.0320664
-    },
-    {
-      "place_id": 3,
-      "place_title": "Abu Simbel Temples",
-      "place_url": "https://lh5.googleusercontent.com/proxy/gALMpn88zJwzvNlQWonr8nsp0YZii9z-BYM0oXUTET9Zm9s3WqrrO-Cro0egwm_jf4JsPMQRzX7XOOmMbWWMTL_x26JXVWk-qJEWT99ac7HPQFWV7GhN77Sd2Q4TYrUprFpNk0LrWyoOlOs3DfrBrUOjR75IqA=w408-h229-k-no",
-      "latitude": 22.3372368,
-      "longitude": 31.6236103
-    },
-    {
-      "place_id": 4,
-      "place_title": "Egyptian Museum",
-      "place_url": "https://lh5.googleusercontent.com/p/AF1QipN3RD6-hObkaJfSmbStkhS-8956LYII5olsGTc=w408-h271-k-no",
-      "latitude": 30.0478468,
-      "longitude": 31.2314606
-    }
-  ]
-}
+[
+  {
+    "place_id": 1,
+    "place_title": "The Great Pyramid of Giza",
+    "place_url": "https://lh4.googleusercontent.com/proxy/uOn-TLT3CDpPi_SekQo6-Yeir0dp6hyH-cvcVlQMuU2ZYw1vZicT-KhKiZdRxmlTxNXJobKos9igvp6Y3gU75XkeD3-D_1mVpgepZcG9aaFN-qyLrrlzt_pA8231iaa3PKiBxjQYiP0rlLPmqcNhkaN6_W0uhRI=w408-h305-k-no",
+    "latitude": 29.9792391,
+    "longitude": 31.1320132
+  },
+  {
+    "place_id": 2,
+    "place_title": "Khan El-Khalili",
+    "place_url": "https://lh5.googleusercontent.com/p/AF1QipOhjzzBBlR2gXJX6WZMmw8gmh96Zm0KK33vxPiJ=w408-h306-k-no",
+    "latitude": 30.0079248,
+    "longitude": 31.0320664
+  },
+  {
+    "place_id": 3,
+    "place_title": "Abu Simbel Temples",
+    "place_url": "https://lh5.googleusercontent.com/proxy/gALMpn88zJwzvNlQWonr8nsp0YZii9z-BYM0oXUTET9Zm9s3WqrrO-Cro0egwm_jf4JsPMQRzX7XOOmMbWWMTL_x26JXVWk-qJEWT99ac7HPQFWV7GhN77Sd2Q4TYrUprFpNk0LrWyoOlOs3DfrBrUOjR75IqA=w408-h229-k-no",
+    "latitude": 22.3372368,
+    "longitude": 31.6236103
+  },
+  {
+    "place_id": 4,
+    "place_title": "Egyptian Museum",
+    "place_url": "https://lh5.googleusercontent.com/p/AF1QipN3RD6-hObkaJfSmbStkhS-8956LYII5olsGTc=w408-h271-k-no",
+    "latitude": 30.0478468,
+    "longitude": 31.2314606
+  }
+]
