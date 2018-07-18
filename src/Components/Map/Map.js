@@ -2,8 +2,7 @@ import React, { Component } from 'react'
 import './Map.css'
 
 import { compose, withProps, withStateHandlers, withHandlers } from 'recompose'
-import { withScriptjs, withGoogleMap, GoogleMap, Marker } from 'react-google-maps'
-import { InfoBox } from 'react-google-maps/lib/components/addons/InfoBox'
+import { withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow } from 'react-google-maps'
 import { MarkerClusterer } from 'react-google-maps/lib/components/addons/MarkerClusterer'
 
 import places from '../../data/places.json'
@@ -14,7 +13,7 @@ const MapWithAMarkerClusterer = compose(
         loadingElement: <div style={{height: `100%`}} />,
         containerElement: <div style={{height: `100vh`, width: `100%`}} />,
         mapElement: <div style={{height: `100%`}} />,
-        center: {lat: 26.4307618, lng: 39.1998633}
+        center: {lat: 26.803434, lng: 32.906478}
     }),
     withHandlers({
         onMarkerClustererClick: () => (markerClusterer) => {
@@ -25,9 +24,14 @@ const MapWithAMarkerClusterer = compose(
     }),
     withStateHandlers(() => ({
         isOpen: false,
+        showInfo: '0'
     }), {
         onToggleOpen: ({ isOpen }) => () => ({
             isOpen: !isOpen,
+        }),
+        showInfo: ({ showInfo, isOpen }) => (a) => ({
+            isOpen: !isOpen,
+            showInfoIndex: a
         })
     }),
     withScriptjs,
@@ -43,23 +47,20 @@ const MapWithAMarkerClusterer = compose(
             enableRetinaIcons
             gridSize={60}
         >
-            {props.markers.map(marker => (
+            {props.markers.map( (marker, index) => (
 
                 <Marker
                     key={marker.place_id}
                     position={{ lat: marker.latitude, lng: marker.longitude }}
-                    onClick={props.onToggleOpen}
+                    onClick={()=>{ props.showInfo(index)} }
                 >
-                    {props.isOpen && <InfoBox
-                        onCloseClick={props.onToggleOpen}
-                        options={{ closeBoxURL: ``, enableEventPropagation: true }}
-                    >
-                        <div style={{ backgroundColor: `yellow`, opacity: 0.75, padding: `12px` }}>
-                            <div style={{ fontSize: `16px`, fontColor: `#08233B` }}>
-                                Hello, Kaohsiung!
-                            </div>
+                    { (props.showInfoIndex === index ) &&
+                    <InfoWindow onCloseClick={props.onToggleOpen}>
+                        <div>
+                            <h2>{marker.place_title}</h2>
+                            <img src={marker.place_url} style={{width: `100%`}}/>
                         </div>
-                    </InfoBox>}
+                    </InfoWindow>}
                 </Marker>
             ))}
         </MarkerClusterer>
@@ -68,8 +69,9 @@ const MapWithAMarkerClusterer = compose(
 
 class Map extends Component {
 
-    componentWillMount() {
-        this.setState({ markers: [] })
+    state = {
+        markers: [],
+        showInfoIndex: ''
     }
 
     componentDidMount() {
