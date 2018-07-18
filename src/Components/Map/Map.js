@@ -58,7 +58,7 @@ const MapWithAMarkerClusterer = compose(
                     <InfoWindow onCloseClick={props.onToggleOpen}>
                         <div>
                             <h2>{marker.place_title}</h2>
-                            <img src={marker.place_url} style={{width: `100%`}}/>
+                            <img src={marker.place_url} style={{width: `100%`}} alt={marker.place_title}/>
                         </div>
                     </InfoWindow>}
                 </Marker>
