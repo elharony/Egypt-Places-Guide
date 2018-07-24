@@ -14,6 +14,7 @@ class Menu extends Component {
         this.setState({ query })
     }
 
+
     render() {
 
         const { query, places } = this.state
@@ -34,7 +35,7 @@ class Menu extends Component {
                 </div>
                 <ul className="search-result">
                     {filteredPlaces.map((place) => (
-                        <li className="item">{place.title}</li>
+                        <li className="item" onClick={() => this.clickOnPlace}>{place.title}</li>
                     ))}
                 </ul>
             </aside>
