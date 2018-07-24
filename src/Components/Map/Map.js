@@ -3,9 +3,12 @@
 import React, { Component } from 'react'
 import './Map.css'
 
-import places from '../../data/places.json'
-
 class Map extends Component {
+
+    state = {
+        places: this.props.places,
+        mapCenter: {lat: 26.803434, lng: 32.906478}
+    }
 
     componentDidMount() {
         window.initMap = this.initMap
@@ -13,16 +16,41 @@ class Map extends Component {
     }
 
     initMap = () => {
+
+        // Show Map
         const map = new window.google.maps.Map(document.getElementById('map'), {
-            center: {lat: -34.397, lng: 150.644},
-            zoom: 8
-          })
+            center: this.state.mapCenter,
+            zoom: 6
+        })
+
+        this.state.places.map((place) => {
+
+            // Create Markers
+            let marker = new window.google.maps.Marker({
+                position: {lat: place.lat, lng: place.lng},
+                map: map,
+                title: place.title
+            })
+
+            // Create InfoWindow
+            let content = `<h1>${place.title}</h1>
+            <img src='${place.img}'>`
+
+            let infowindow = new window.google.maps.InfoWindow({
+                content: content
+            })
+
+            // Display the InfoWindow after clicking on the Marker
+            marker.addListener('click', function() {
+                infowindow.open(map, marker)
+            })
+        })
     }
     
     render() {
 
         return (
-            <div id="map" style={{width: '500px', height: '500px'}}></div>
+            <div id="map"></div>
         )
     }
 }

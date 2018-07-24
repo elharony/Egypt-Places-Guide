@@ -34,7 +34,7 @@ class Menu extends Component {
                 </div>
                 <ul className="search-result">
                     {filteredPlaces.map((place) => (
-                        <li className="item">{place.place_title}</li>
+                        <li className="item">{place.title}</li>
                     ))}
                 </ul>
             </aside>
