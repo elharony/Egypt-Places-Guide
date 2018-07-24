@@ -3,7 +3,9 @@ import './App.css'
 
 // Components
 import Menu from './Components/Menu/Menu'
-import Map from './Components/Map/Map'
+import MapContainer from './Components/Map/Map'
+
+
 
 class App extends Component {
 
@@ -11,7 +13,15 @@ class App extends Component {
         return (
             <main>
                 <Menu/>
-                <Map/>
+                {/* <MapContainer
+                    places={this.state.places}
+                    activeMarker={this.state.activeMarker} 
+                    showingInfoWindow={this.state.showingInfoWindow}
+                    selectedPlace={this.state.selectedPlace}
+                    onMapClicked={this.onMapClicked}
+                    onMarkerClick={this.onMarkerClick}
+                /> */}
+                <MapContainer/>
             </main>
         )
     }
