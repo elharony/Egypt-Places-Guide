@@ -3,13 +3,11 @@ import './Menu.css'
 import escapeRegExp from 'escape-string-regexp'
 
 // Places Data
-import places from '../../data/places.json'
-
 class Menu extends Component {
 
     state = {
         query: '',
-        places: places
+        places: this.props.places
     }
 
     updateQuery = (query) => {
