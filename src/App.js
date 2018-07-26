@@ -4,6 +4,7 @@ import './App.css'
 // Components
 import Menu from './Components/Menu/Menu'
 import Map from './Components/Map/Map'
+import Header from './Components/Header/Header'
 
 import places from './data/places.json'
 
@@ -69,10 +70,14 @@ class App extends Component {
     
     render() {
         return (
-            <main>
-                <Menu places={places} markers={this.state.markers} triggerMarkerClick={this.triggerMarkerClick}/>
-                <Map places={places}/>
-            </main>
+            <div>
+                <Header/>
+                <main>
+                    <Menu places={places} markers={this.state.markers} triggerMarkerClick={this.triggerMarkerClick}/>
+                    <Map places={places}/>
+                </main>
+            </div>
+            
         )
     }
 }

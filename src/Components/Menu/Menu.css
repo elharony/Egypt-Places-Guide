@@ -5,7 +5,7 @@
 }
 aside {
     width: 30%;
-    height: 100vh;
+    height: calc(100vh - 61px);
     padding: 0 0.5rem;
     background: #ffffff;
 }
@@ -25,7 +25,7 @@ aside .search-form input {
     box-sizing: border-box;
 }
 aside .search-result {
-    max-height: 80vh;
+    max-height: calc(80vh - 61px);
     overflow-y: scroll;
 }
 aside .search-result li {
@@ -37,4 +37,17 @@ aside .search-result li {
 aside .search-result li:hover {
     color: #ffffff;
     background: #222222;
+}
+
+@media all and (max-width: 767px) {
+    aside {
+        position: fixed;
+        width: 250px;
+        left: -100%;
+        transition: all 500ms ease-in-out;
+        z-index: 99;
+    }
+    aside.toggle {
+        left: 0
+    }
 }
