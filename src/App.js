@@ -37,31 +37,37 @@ class App extends Component {
             let marker = new window.google.maps.Marker({
                 position: {lat: place.lat, lng: place.lng},
                 map: map,
+                draggable: true,
+                animation: window.google.maps.Animation.DROP,
                 title: place.title
             })
+            // Add each created marker to the 'markers' array
             this.state.markers.push(marker)
 
             // Create InfoWindow
             let content = `<h1>${place.title}</h1><img src='${place.img}'>`
-
             let infowindow = new window.google.maps.InfoWindow({
                 content: content
             })
-            this.state.infowindows.push(infowindow)
 
             // Display the InfoWindow after clicking on the Marker
             marker.addListener('click', function() {
+                
                 // Open An 'InfoWindow'
-                // console.log(this.state.infowindows)
-                // this.state.infowindows.map((iw) => {
-                //     iw.close()
-                // })
                 infowindow.open(map, marker)
-                // Animate The Marker
 
+                // Animate The Marker
+                if (marker.getAnimation() !== null) {
+                    marker.setAnimation(null);
+                } else {
+                    marker.setAnimation(window.google.maps.Animation.BOUNCE);
+                }
             })
         })
+    
     }
+
+    
 
     triggerMarkerClick = (index) => {
         window.google.maps.event.trigger(this.state.markers[index], 'click');
