@@ -21,7 +21,7 @@ class Menu extends Component {
 
         if(query) {
             const match = new RegExp(escapeRegExp(query), 'i');
-            filteredPlaces = places.filter((place) => match.test(place.place_title))
+            filteredPlaces = places.filter((place) => match.test(place.title))
         } else {
             filteredPlaces = places
         }
