@@ -14,7 +14,6 @@ class Menu extends Component {
         this.setState({ query })
     }
 
-
     render() {
 
         const { query, places } = this.state
@@ -34,8 +33,13 @@ class Menu extends Component {
                     <input type="text" placeholder="Search Here" onChange={(e) => this.updateQuery(e.target.value)} value={this.state.query}/>
                 </div>
                 <ul className="search-result">
-                    {filteredPlaces.map((place) => (
-                        <li className="item" onClick={() => this.clickOnPlace}>{place.title}</li>
+                    {filteredPlaces.map((place, index) => (
+                        <li 
+                            className="item" 
+                            onClick={() => this.props.triggerMarkerClick(index)}
+                        >
+                            {place.title}
+                        </li>
                     ))}
                 </ul>
             </aside>

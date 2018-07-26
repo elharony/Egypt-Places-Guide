@@ -17,6 +17,8 @@ class App extends Component {
 
     state = {
         places: places,
+        markers: [],
+        infowindows: [],
         mapCenter: {lat: 26.803434, lng: 32.906478}
     }
 
@@ -36,26 +38,39 @@ class App extends Component {
                 map: map,
                 title: place.title
             })
+            this.state.markers.push(marker)
 
             // Create InfoWindow
-            let content = `<h1>${place.title}</h1>
-            <img src='${place.img}'>`
+            let content = `<h1>${place.title}</h1><img src='${place.img}'>`
 
             let infowindow = new window.google.maps.InfoWindow({
                 content: content
             })
+            this.state.infowindows.push(infowindow)
 
             // Display the InfoWindow after clicking on the Marker
             marker.addListener('click', function() {
+                // Open An 'InfoWindow'
+                // console.log(this.state.infowindows)
+                // this.state.infowindows.map((iw) => {
+                //     iw.close()
+                // })
                 infowindow.open(map, marker)
+                // Animate The Marker
+
             })
         })
+    }
+
+    triggerMarkerClick = (index) => {
+        window.google.maps.event.trigger(this.state.markers[index], 'click');
+        console.log(this.state.markers[index])
     }
     
     render() {
         return (
             <main>
-                <Menu places={places}/>
+                <Menu places={places} markers={this.state.markers} triggerMarkerClick={this.triggerMarkerClick}/>
                 <Map places={places}/>
             </main>
         )
