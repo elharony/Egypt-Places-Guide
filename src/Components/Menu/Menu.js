@@ -14,6 +14,11 @@ class Menu extends Component {
         this.setState({ query })
     }
 
+    triggerMarkerClick = (index) => {
+        window.google.maps.event.trigger(this.props.markers[index], 'click');
+        // console.log(this.state.markers[index])
+    }
+
     render() {
 
         const { query, places } = this.state
@@ -36,7 +41,7 @@ class Menu extends Component {
                     {filteredPlaces.map((place, index) => (
                         <li 
                             className="item" 
-                            onClick={() => this.props.triggerMarkerClick(index)}
+                            onClick={() => this.triggerMarkerClick(index)}
                         >
                             {place.title}
                         </li>
