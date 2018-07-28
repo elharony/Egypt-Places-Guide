@@ -5,7 +5,7 @@
 }
 aside {
     width: 30%;
-    height: calc(100vh - 61px);
+    height: calc(100vh - 65px);
     padding: 0 0.5rem;
     background: #ffffff;
 }
@@ -18,6 +18,13 @@ aside .search-form {
     width: 100%;
     margin-bottom: 1rem;
 }
+aside .search-form label {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    display: block;
+    text-align: center;
+    font-weight: bold;
+}
 aside .search-form input {
     width: 100%;
     padding: 0.75rem;
@@ -25,7 +32,7 @@ aside .search-form input {
     box-sizing: border-box;
 }
 aside .search-result {
-    max-height: calc(80vh - 61px);
+    max-height: calc(85vh - 61px);
     overflow-y: scroll;
 }
 aside .search-result li {

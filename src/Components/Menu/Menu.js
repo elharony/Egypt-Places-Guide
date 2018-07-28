@@ -34,9 +34,9 @@ class Menu extends Component {
 
         return (
             <aside>
-                <h2>Find A Place!</h2>
                 <div className="search-form">
-                    <input type="text" placeholder="Search Here" onChange={(e) => this.updateQuery(e.target.value)} value={this.state.query}/>
+                    <label for="searchQuery">Find A Place!</label>
+                    <input id="searchQuery" type="text" placeholder="Search Here" onChange={(e) => this.updateQuery(e.target.value)} value={this.state.query}/>
                 </div>
                 <ul className="search-result">
                     {this.props.places.map((place, index) => (

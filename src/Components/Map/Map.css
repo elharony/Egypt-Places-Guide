@@ -1,6 +1,6 @@
 #map {
     width: 80%;
-    height: calc(100vh - 61px);
+    height: calc(100vh - 65px);
 }
 
 @media all and (max-width: 767px) {
