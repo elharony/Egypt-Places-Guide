@@ -25,9 +25,12 @@ class Menu extends Component {
         }
     }
 
-    triggerMarkerClick = (index) => {
-        window.google.maps.event.trigger(this.props.markers[index], 'click');
-        // console.log(this.state.markers[index])
+    triggerMarkerClick = (placeTitle) => {
+        this.props.markers.map((marker) => {
+            if(marker.title == placeTitle) {
+                window.google.maps.event.trigger(marker, 'click');
+            }
+        })
     }
 
     render() {
@@ -36,14 +39,20 @@ class Menu extends Component {
             <aside>
                 <div className="search-form">
                     <label for="searchQuery">Find A Place!</label>
-                    <input id="searchQuery" type="text" placeholder="Search Here" onChange={(e) => this.updateQuery(e.target.value)} value={this.state.query}/>
+                    <input 
+                        id="searchQuery" 
+                        type="text" 
+                        placeholder="Search Here" 
+                        onChange={(e) => this.updateQuery(e.target.value)} 
+                        value={this.state.query}
+                    />
                 </div>
                 <ul className="search-result">
                     {this.props.places.map((place, index) => (
                         <li 
                             key={index}
                             className="item" 
-                            onClick={() => this.triggerMarkerClick(index)}
+                            onClick={() => this.triggerMarkerClick(place.title)}
                         >
                             {place.title}
                         </li>
