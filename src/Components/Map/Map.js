@@ -11,6 +11,9 @@ class Map extends Component {
         loadJS('https://maps.googleapis.com/maps/api/js?key=AIzaSyC2d4rgkL4a-9qZpQSpj1jhiPRhstXiD_E&callback=initMap')
     }
 
+    componentWillUpdate() {
+        this.initMap()
+    }
 
     initMap = () => {
 

@@ -12,6 +12,17 @@ class Menu extends Component {
 
     updateQuery = (query) => {
         this.setState({ query })
+        
+        let allPlaces = this.state.places
+        let newPlaces
+
+        if(this.state.query) {
+            const match = new RegExp(escapeRegExp(this.state.query), 'i');
+            newPlaces = this.state.places.filter((place) => match.test(place.title))
+            this.props.updatePlaces(newPlaces)
+        } else {
+            this.props.updatePlaces(allPlaces)
+        }
     }
 
     triggerMarkerClick = (index) => {
@@ -21,16 +32,6 @@ class Menu extends Component {
 
     render() {
 
-        const { query, places } = this.state
-        let filteredPlaces
-
-        if(query) {
-            const match = new RegExp(escapeRegExp(query), 'i');
-            filteredPlaces = places.filter((place) => match.test(place.title))
-        } else {
-            filteredPlaces = places
-        }
-
         return (
             <aside>
                 <h2>Find A Place!</h2>
@@ -38,8 +39,9 @@ class Menu extends Component {
                     <input type="text" placeholder="Search Here" onChange={(e) => this.updateQuery(e.target.value)} value={this.state.query}/>
                 </div>
                 <ul className="search-result">
-                    {filteredPlaces.map((place, index) => (
+                    {this.props.places.map((place, index) => (
                         <li 
+                            key={index}
                             className="item" 
                             onClick={() => this.triggerMarkerClick(index)}
                         >

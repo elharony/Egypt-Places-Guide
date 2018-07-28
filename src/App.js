@@ -16,6 +16,12 @@ class App extends Component {
         markers: [],
         mapCenter: {lat: 26.803434, lng: 32.906478}
     }
+
+    updatePlaces = (newPlaces) => {
+        this.setState({places: newPlaces})
+        console.log('State Places:', this.state.places)
+        console.log('New Places:', newPlaces)
+    }
     
     render() {
         return (
@@ -26,6 +32,7 @@ class App extends Component {
                         places={this.state.places} 
                         markers={this.state.markers} 
                         triggerMarkerClick={this.triggerMarkerClick}
+                        updatePlaces={this.updatePlaces}
                     />
                     <Map 
                         places={this.state.places}
