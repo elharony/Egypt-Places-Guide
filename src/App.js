@@ -31,6 +31,8 @@ class App extends Component {
             zoom: 6
         })
 
+        let infowindow = new window.google.maps.InfoWindow
+
         this.state.places.map((place) => {
 
             // Create Markers
@@ -46,13 +48,12 @@ class App extends Component {
 
             // Create InfoWindow
             let content = `<h1>${place.title}</h1><img src='${place.img}'>`
-            let infowindow = new window.google.maps.InfoWindow({
-                content: content
-            })
 
             // Display the InfoWindow after clicking on the Marker
             marker.addListener('click', function() {
                 
+                // Update 'InfoWindow' content
+                infowindow.setContent(content)
                 // Open An 'InfoWindow'
                 infowindow.open(map, marker)
 
