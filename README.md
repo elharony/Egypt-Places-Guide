@@ -2,10 +2,7 @@
 A SPA - Single Page Application - built using ReactJS. It helps travelers to find the attractions in Egypt, and do what they actually came for - To know 🇪🇬!
 
 ## How it works?
-The application contains 3 components, The `Header`, `Menu` and `Map`. Simply what happens is:
-- All places are retrieved from a custom JSON file contains the places in `src/data/places.json`
-- Both of the `Menu` and `Map` components are using that `places.json` file to display the data
-- The `App.js` is the Parent Component for all Sub-Components in this Application, it has the common `state` to manage changes
+This app uses `Google Maps API` to display a Map, and `FourSquare API` to get places info. It has also a `Menu` component that display a List of Places, and a Search Filter. Just Click on any place from the menu and it would trigger its Marker on the Map!
 
 ## Setup Instructions
 - `git clone https://github.com/elharony/Egypt-Places-Guide.git`
