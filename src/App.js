@@ -14,6 +14,7 @@ import axios from 'axios'
 class App extends Component {
 
     state = {
+        allPlaces: [],
         places: [],
         markers: [],
         latLong: ''
@@ -49,7 +50,10 @@ class App extends Component {
 
         // Fetch
         axios.get(endPoint + new URLSearchParams(params)).then(response => {
-            this.setState({places: response.data.response.groups[0].items}, this.loadMap)
+            this.setState({
+                allPlaces: response.data.response.groups[0].items,
+                places: response.data.response.groups[0].items
+            }, this.loadMap)
         })
     }
 
@@ -102,9 +106,9 @@ class App extends Component {
     
     }
 
-
     updatePlaces = (newPlaces) => {
         this.setState({places: newPlaces})
+        console.log(this.state.places)
     }
     
     render() {
@@ -113,7 +117,7 @@ class App extends Component {
                 <Header/>
                 <main>
                     <Menu 
-                        places={this.state.places} 
+                        places={this.state.allPlaces} 
                         markers={this.state.markers} 
                         updatePlaces={this.updatePlaces}
                     />

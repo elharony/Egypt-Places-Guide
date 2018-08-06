@@ -13,16 +13,18 @@ class Menu extends Component {
     updateQuery = (query) => {
         this.setState({ query })
         
-        let allPlaces = this.state.places
+        let allPlaces = this.props.places
         let newPlaces
 
         if(this.state.query && (this.state.query !== '')) {
             const match = new RegExp(escapeRegExp(query), 'i');
             newPlaces = allPlaces.filter((place) => match.test(place.venue.name))
+            this.setState({places: newPlaces})
             this.props.updatePlaces(newPlaces)
         } else {
-            this.props.updatePlaces(allPlaces)
+            this.setState({places: allPlaces})
         }
+        console.log("All Places: ", allPlaces)
     }
 
     triggerMarkerClick = (placeTitle) => {
@@ -35,7 +37,8 @@ class Menu extends Component {
 
     render() {
 
-        console.log(this.props.markers)
+        // Initial Places
+        let places = this.state.places == '' ? this.props.places : this.state.places
 
         return (
             <aside>
@@ -50,7 +53,7 @@ class Menu extends Component {
                     />
                 </div>
                 <ul className="search-result">
-                    {this.props.places.map((place, index) => (
+                    {places.map((place, index) => (
                         <li 
                             key={index}
                             className="item" 
