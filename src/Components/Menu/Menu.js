@@ -24,7 +24,6 @@ class Menu extends Component {
         } else {
             this.setState({places: allPlaces})
         }
-        console.log("All Places: ", allPlaces)
     }
 
     triggerMarkerClick = (placeTitle) => {

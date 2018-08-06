@@ -6,9 +6,7 @@ import Menu from './Components/Menu/Menu'
 import Map from './Components/Map/Map'
 import Header from './Components/Header/Header'
 
-import places from './data/places.json'
 import axios from 'axios'
-
 
 
 class App extends Component {
@@ -121,7 +119,7 @@ class App extends Component {
                         markers={this.state.markers} 
                         updatePlaces={this.updatePlaces}
                     />
-                    <div id="map"></div>
+                    <Map/>
                 </main>
             </div>
         )
