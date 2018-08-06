@@ -35,9 +35,7 @@ class Menu extends Component {
     }
 
     render() {
-
-        // Initial Places
-        let places = this.state.places == '' ? this.props.places : this.state.places
+        console.log(this.state.places.length)
 
         return (
             <aside>
@@ -51,18 +49,28 @@ class Menu extends Component {
                         value={this.state.query}
                     />
                 </div>
-                <ul className="search-result">
-                    {places.map((place, index) => (
-                        <li 
-                            key={index}
-                            tabindex={index}
-                            className="item" 
-                            onClick={() => this.triggerMarkerClick(place.venue.name)}
-                        >
-                            {place.venue.name}
-                        </li>
-                    ))}
-                </ul>
+
+                {this.state.places.length !== 0 && (
+                    <ul className="search-result">
+                        {this.state.places.map((place, index) => (
+                            <li 
+                                key={index}
+                                tabindex={index}
+                                className="item" 
+                                onClick={() => this.triggerMarkerClick(place.venue.name)}
+                            >
+                                {place.venue.name}
+                            </li>
+                        ))}
+                    </ul>
+                )}
+
+                {this.state.places == 0 && (
+                    <ul className="search-result">
+                        <li className="item">No Places Found..</li>
+                    </ul>
+                )}
+                
             </aside>
 
         )
