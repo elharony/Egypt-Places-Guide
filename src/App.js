@@ -82,7 +82,11 @@ class App extends Component {
             this.state.markers.push(marker)
 
             // Create InfoWindow
-            let content = `<h1>${place.venue.name}</h1>`
+            let content = `
+                            <h1>${place.venue.name}</h1>
+                            <p>Address: ${place.venue.location.formattedAddress[0]} ${place.venue.location.formattedAddress[1]} ${place.venue.location.formattedAddress[2]}</p>
+                            <p>lat: ${place.venue.location.lat}, long: ${place.venue.location.lng}</p>
+                            `
 
             // Display the InfoWindow after clicking on the Marker
             marker.addListener('click', function() {
@@ -106,10 +110,11 @@ class App extends Component {
 
     updatePlaces = (newPlaces) => {
         this.setState({places: newPlaces})
-        console.log(this.state.places)
     }
     
     render() {
+        console.log(this.state.places)
+
         return (
             <div>
                 <Header/>
