@@ -55,6 +55,7 @@ class Menu extends Component {
                     {places.map((place, index) => (
                         <li 
                             key={index}
+                            tabindex={index}
                             className="item" 
                             onClick={() => this.triggerMarkerClick(place.venue.name)}
                         >
