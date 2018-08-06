@@ -38,7 +38,7 @@ class Menu extends Component {
         return (
             <aside>
                 <div className="search-form">
-                    <label for="searchQuery">Find A Place!</label>
+                    <label htmlFor="searchQuery">Find A Place!</label>
                     <input 
                         id="searchQuery" 
                         type="text" 

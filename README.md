@@ -1,5 +1,5 @@
 # Egypt Places Guide | Visit All Attractions
-A SPA - Single Page Application - built using ReactJS. Mainly, it helps travelers to find the attractions in Egypt to save them some time, and do what they actually came for - To know 🇪🇬!
+A SPA - Single Page Application - built using ReactJS. It helps travelers to find the attractions in Egypt, and do what they actually came for - To know 🇪🇬!
 
 ## How it works?
 The application contains 3 components, The `Header`, `Menu` and `Map`. Simply what happens is:

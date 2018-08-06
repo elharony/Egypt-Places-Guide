@@ -1,4 +1,4 @@
-// API KEY: AIzaSyC2d4rgkL4a-9qZpQSpj1jhiPRhstXiD_E
+// API KEY: AIzaSyCxw6moMaDjW09LfHXKdeA3AkHkZSpyhLM
 
 import React, { Component } from 'react'
 import './Map.css'
@@ -8,7 +8,7 @@ class Map extends Component {
 
     componentDidMount() {
         window.initMap = this.initMap
-        loadJS('https://maps.googleapis.com/maps/api/js?key=AIzaSyC2d4rgkL4a-9qZpQSpj1jhiPRhstXiD_E&callback=initMap')
+        loadJS('https://maps.googleapis.com/maps/api/js?key=AIzaSyCxw6moMaDjW09LfHXKdeA3AkHkZSpyhLM&callback=initMap')
     }
 
     componentWillUpdate() {
@@ -40,7 +40,7 @@ class Map extends Component {
             this.props.markers.push(marker)
 
             // Create InfoWindow
-            let content = `<h1>${place.title}</h1><img src='${place.img}'>`
+            let content = `<h1>${place.title}</h1><img src='${place.img}' style='width: 300px; height: 250px'>`
 
             // Display the InfoWindow after clicking on the Marker
             marker.addListener('click', function() {
