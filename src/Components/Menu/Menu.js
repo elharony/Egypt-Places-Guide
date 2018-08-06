@@ -16,8 +16,8 @@ class Menu extends Component {
         let allPlaces = this.state.places
         let newPlaces
 
-        if(this.state.query && this.state.query !== '') {
-            const match = new RegExp(escapeRegExp(this.state.query), 'i');
+        if(this.state.query && (this.state.query !== '')) {
+            const match = new RegExp(escapeRegExp(query), 'i');
             newPlaces = allPlaces.filter((place) => match.test(place.title))
             this.props.updatePlaces(newPlaces)
         } else {

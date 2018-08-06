@@ -31,7 +31,6 @@ class App extends Component {
                     <Menu 
                         places={this.state.places} 
                         markers={this.state.markers} 
-                        triggerMarkerClick={this.triggerMarkerClick}
                         updatePlaces={this.updatePlaces}
                     />
                     <Map 
