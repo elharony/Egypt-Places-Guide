@@ -18,7 +18,7 @@ class Menu extends Component {
 
         if(this.state.query && (this.state.query !== '')) {
             const match = new RegExp(escapeRegExp(query), 'i');
-            newPlaces = allPlaces.filter((place) => match.test(place.title))
+            newPlaces = allPlaces.filter((place) => match.test(place.venue.name))
             this.props.updatePlaces(newPlaces)
         } else {
             this.props.updatePlaces(allPlaces)
@@ -52,9 +52,9 @@ class Menu extends Component {
                         <li 
                             key={index}
                             className="item" 
-                            onClick={() => this.triggerMarkerClick(place.title)}
+                            onClick={() => this.triggerMarkerClick(place.venue.name)}
                         >
-                            {place.title}
+                            {place.venue.name}
                         </li>
                     ))}
                 </ul>
