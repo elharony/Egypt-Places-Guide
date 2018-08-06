@@ -60,8 +60,8 @@ class App extends Component {
 
         // Show Map
         const map = new window.google.maps.Map(document.getElementById('map'), {
-            center: {lat: 26.803434, lng: 32.906478},
-            zoom: 6
+            center: {lat: 30.044193, lng: 31.235620},
+            zoom: 11
         })
 
         let infowindow = new window.google.maps.InfoWindow
@@ -72,9 +72,8 @@ class App extends Component {
             let marker = new window.google.maps.Marker({
                 position: {lat: place.venue.location.lat, lng: place.venue.location.lng},
                 map: map,
-                draggable: true,
                 animation: window.google.maps.Animation.DROP,
-                title: place.title
+                title: place.venue.name
             })
 
             // Add each created marker to the 'markers' array

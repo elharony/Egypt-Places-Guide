@@ -35,6 +35,8 @@ class Menu extends Component {
 
     render() {
 
+        console.log(this.props.markers)
+
         return (
             <aside>
                 <div className="search-form">
