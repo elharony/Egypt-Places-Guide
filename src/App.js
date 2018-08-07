@@ -19,7 +19,7 @@ class App extends Component {
     }
 
     componentDidMount() {
-        this.getPlaces("sights")
+        this.getPlaces("sights", "egypt")
     }
 
     loadMap = () => {
@@ -27,13 +27,13 @@ class App extends Component {
         window.initMap = this.initMap
     }
 
-    getPlaces = (query) => {
+    getPlaces = (query, location) => {
         const endPoint = "https://api.foursquare.com/v2/venues/explore?"
         const params = {
             client_id: "PMHC2WA1VCBHVYOPPSJ0QSBYTLRF4PNJ04OWVWV0PZJ0QFIR",
             client_secret: "CULSZZ44YAEBOWBFGPB4BF5ISRXXSNYR0EE3JV3CNE2ZWHV0",
-            ll: this.state.latLong,
             query: query,
+            near: location,
             v: "20182507"
         }
 
@@ -53,8 +53,8 @@ class App extends Component {
 
         // Show Map
         const map = new window.google.maps.Map(document.getElementById('map'), {
-            center: {lat: 30.044193, lng: 31.235620},
-            zoom: 13
+            center: {lat: 26.810883, lng: 31.384734},
+            zoom: 6
         })
 
         let infowindow = new window.google.maps.InfoWindow
