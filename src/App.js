@@ -15,25 +15,16 @@ class App extends Component {
         allPlaces: [],
         places: [],
         markers: [],
-        latLong: ''
+        latLong: "30.044232, 31.235693"
     }
 
     componentDidMount() {
-        this.getLocation()
+        this.getPlaces("sights")
     }
 
     loadMap = () => {
         loadJS('https://maps.googleapis.com/maps/api/js?key=AIzaSyD1DrDBUd6GNL2EIBCxK-K0OjkTny8kbuA&callback=initMap')
         window.initMap = this.initMap
-    }
-
-    getLocation = () => {
-        navigator.geolocation.getCurrentPosition(response => {
-            this.setState({
-                latLong: response.coords.latitude + "," + response.coords.longitude
-            })
-            this.getPlaces("sights")
-        })
     }
 
     getPlaces = (query) => {
@@ -63,7 +54,7 @@ class App extends Component {
         // Show Map
         const map = new window.google.maps.Map(document.getElementById('map'), {
             center: {lat: 30.044193, lng: 31.235620},
-            zoom: 11
+            zoom: 13
         })
 
         let infowindow = new window.google.maps.InfoWindow
