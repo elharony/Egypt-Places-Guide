@@ -28,15 +28,13 @@ class Menu extends Component {
 
     triggerMarkerClick = (placeTitle) => {
         this.props.markers.map((marker) => {
-            if(marker.title == placeTitle) {
+            if(marker.title === placeTitle) {
                 window.google.maps.event.trigger(marker, 'click');
             }
         })
     }
 
     render() {
-        console.log(this.state.places.length)
-
         return (
             <aside>
                 <div className="search-form">
@@ -65,7 +63,7 @@ class Menu extends Component {
                     </ul>
                 )}
 
-                {this.state.places == 0 && (
+                {this.state.places === 0 && (
                     <ul className="search-result">
                         <li className="item">No Places Found..</li>
                     </ul>

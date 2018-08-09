@@ -46,8 +46,6 @@ class App extends Component {
         })
     }
 
-
-
     /* Map */
     initMap = () => {
 
@@ -57,7 +55,7 @@ class App extends Component {
             zoom: 6
         })
 
-        let infowindow = new window.google.maps.InfoWindow
+        let infowindow = new window.google.maps.InfoWindow()
 
         this.state.places.map((place) => {
 
@@ -104,8 +102,6 @@ class App extends Component {
     }
     
     render() {
-        console.log(this.state.places)
-
         return (
             <div>
                 <Header/>
